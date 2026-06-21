@@ -25,6 +25,7 @@ export type Token = {
   volume24h: number;
   marketCap: number;
   liquidity: number;
+  logoUrl?: string;
   holdersCount: number;
   rank: number;
   accent: string;

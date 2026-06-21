@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TokenAvatar } from "@/components/trading/token-avatar";
 import type { Token } from "@/types/token";
 import { cn } from "@/utils/cn";
 import { formatCurrency, formatPercent } from "@/utils/format";
@@ -37,11 +38,7 @@ export function TokenBanner({
                 href={"/trade/" + token.address}
                 key={token.address + "-" + index}
               >
-                <span
-                  aria-hidden="true"
-                  className="h-2 w-2 rounded-full"
-                  style={{ background: token.accent }}
-                />
+                <TokenAvatar size="sm" token={token} />
                 <span className="font-mono font-semibold text-white">{token.symbol}</span>
                 <span className="text-white/50">{formatCurrency(token.price)}</span>
                 <span

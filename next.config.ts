@@ -5,13 +5,27 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "developer.apple.com",
-        pathname: "/assets/elements/badges/**",
+        hostname: "raw.githubusercontent.com",
       },
       {
         protocol: "https",
-        hostname: "play.google.com",
-        pathname: "/intl/**/badges/**",
+        hostname: "static.jup.ag",
+      },
+      {
+        protocol: "https",
+        hostname: "cryptologos.cc",
+      },
+      {
+        protocol: "https",
+        hostname: "arweave.net",
+      },
+      {
+        protocol: "https",
+        hostname: "*.arweave.net",
+      },
+      {
+        protocol: "https",
+        hostname: "image-cdn.solana.fm",
       },
     ],
   },

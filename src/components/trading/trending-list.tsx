@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { TokenAvatar } from "@/components/trading/token-avatar";
 import type { Token } from "@/types/token";
 import { cn } from "@/utils/cn";
 import { formatCompact, formatCurrency, formatPercent } from "@/utils/format";
@@ -66,12 +67,7 @@ export function TrendingList({ activeAddress, tokens }: TrendingListProps) {
             >
               <div className="flex items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
-                  <span
-                    className="flex h-10 w-10 items-center justify-center rounded-xl font-mono text-sm font-black text-black shadow-[0_12px_30px_rgba(0,0,0,0.25)]"
-                    style={{ background: token.accent }}
-                  >
-                    {token.symbol.slice(0, 2)}
-                  </span>
+                  <TokenAvatar token={token} />
                   <div>
                     <p className="font-black tracking-[-0.02em]">{token.symbol}</p>
                     <p className="max-w-32 truncate text-xs text-white/42">{token.name}</p>

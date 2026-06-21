@@ -10,13 +10,13 @@ const badges = {
   apple: {
     alt: "Download on the App Store",
     height: 40,
-    src: "https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg",
+    src: "/badges/app-store.svg",
     width: 120,
   },
   google: {
     alt: "Get it on Google Play",
     height: 45,
-    src: "https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png",
+    src: "/badges/google-play.png",
     width: 151,
   },
 };
@@ -36,10 +36,9 @@ export function StoreBadge({ compact = false, store }: StoreBadgeProps) {
     >
       <Image
         alt={badge.alt}
-        className={compact ? "h-auto max-h-9 w-auto object-contain" : "h-auto max-h-11 w-auto object-contain"}
+        className={compact ? "h-auto max-h-9 w-auto object-contain" : "h-auto max-h-[54px] w-auto object-contain"}
         height={badge.height}
         src={badge.src}
-        unoptimized={store === "apple"}
         width={badge.width}
       />
     </a>

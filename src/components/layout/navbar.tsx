@@ -42,7 +42,7 @@ export function Navbar({ featuredTokenAddress }: NavbarProps) {
         </div>
 
         <div className="flex items-center gap-3">
-          <div className="hidden items-center gap-2 2xl:flex">
+          <div className="hidden items-center gap-3 xl:flex">
             <StoreBadge compact store="apple" />
             <StoreBadge compact store="google" />
           </div>

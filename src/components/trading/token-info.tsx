@@ -1,3 +1,4 @@
+import { TokenAvatar } from "@/components/trading/token-avatar";
 import type { Token } from "@/types/token";
 import { cn } from "@/utils/cn";
 import { formatCompact, formatCurrency, formatPercent, shortAddress } from "@/utils/format";
@@ -54,12 +55,7 @@ export function TokenInfo({ token }: TokenInfoProps) {
     <article className="overflow-hidden rounded-[1.7rem] border border-white/10 bg-[#080a12]/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
       <div className="flex flex-col gap-6 border-b border-white/10 bg-white/[0.025] p-5 sm:flex-row sm:items-start sm:justify-between">
         <div className="flex items-center gap-4">
-          <span
-            className="flex h-14 w-14 items-center justify-center rounded-2xl font-mono text-xl font-black text-black shadow-[0_18px_50px_rgba(0,0,0,0.35)] sm:h-16 sm:w-16"
-            style={{ background: token.accent }}
-          >
-            {token.symbol.slice(0, 2)}
-          </span>
+          <TokenAvatar size="lg" token={token} />
           <div>
             <div className="flex flex-wrap items-center gap-2">
               <h1 className="text-4xl font-black tracking-[-0.06em] sm:text-5xl">{token.symbol}</h1>

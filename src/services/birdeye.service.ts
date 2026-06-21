@@ -15,6 +15,10 @@ type BirdEyeToken = {
   marketCap?: number;
   market_cap?: number;
   liquidity?: number;
+  logoURI?: string;
+  logoUri?: string;
+  logo?: string;
+  icon?: string;
   holder?: number;
   holders?: number;
   holderCount?: number;
@@ -110,6 +114,7 @@ function mapBirdEyeToken(item: BirdEyeToken, index: number): Token {
       volume24h: toNumber(item.v24hUSD ?? item.volume24hUSD ?? item.volume_24h_usd),
       marketCap: toNumber(item.mc ?? item.marketCap ?? item.market_cap ?? item.market_cap_usd),
       liquidity: toNumber(item.liquidity),
+      logoUrl: item.logoURI ?? item.logoUri ?? item.logo ?? item.icon,
       holdersCount: toNumber(item.holder ?? item.holders ?? item.holderCount),
       source: "BirdEye",
     },
