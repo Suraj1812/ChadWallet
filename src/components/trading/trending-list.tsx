@@ -29,7 +29,7 @@ export function TrendingList({ activeAddress, tokens }: TrendingListProps) {
   }, [query, tokens]);
 
   return (
-    <aside className="rounded-[1.7rem] border border-white/10 bg-[#080a12]/78 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] lg:sticky lg:top-24 lg:h-[calc(100vh-7rem)] lg:overflow-y-auto">
+    <aside className="rounded-lg border border-white/10 bg-[#080a12]/78 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] lg:sticky lg:top-24 lg:h-[calc(100vh-7rem)] lg:overflow-y-auto">
       <div className="mb-4 flex items-center justify-between">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-chad">Trending</p>
@@ -40,7 +40,7 @@ export function TrendingList({ activeAddress, tokens }: TrendingListProps) {
         </span>
       </div>
 
-      <label className="mb-3 block rounded-[1.15rem] border border-white/10 bg-black/25 px-4 py-3 focus-within:border-chad/45">
+      <label className="mb-3 block rounded-md border border-white/10 bg-black/25 px-4 py-3 focus-within:border-chad/45">
         <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/35">
           Search ticker
         </span>
@@ -59,7 +59,7 @@ export function TrendingList({ activeAddress, tokens }: TrendingListProps) {
           return (
             <Link
               className={cn(
-                "group rounded-[1.25rem] border border-white/10 bg-white/[0.025] p-3.5 transition duration-300 hover:-translate-y-px hover:border-chad/35 hover:bg-chad/[0.07]",
+                "group rounded-md border border-white/10 bg-white/[0.025] p-3.5 transition duration-300 hover:-translate-y-px hover:border-chad/35 hover:bg-chad/[0.07]",
                 active && "border-chad/55 bg-chad/[0.08] shadow-[0_18px_70px_rgba(215,255,56,0.08)]",
               )}
               href={"/trade/" + token.address}
@@ -90,7 +90,7 @@ export function TrendingList({ activeAddress, tokens }: TrendingListProps) {
           );
         })}
         {filteredTokens.length === 0 ? (
-          <div className="rounded-[1.25rem] border border-white/10 bg-black/20 p-4 text-sm text-white/45">
+          <div className="rounded-md border border-white/10 bg-black/20 p-4 text-sm text-white/45">
             No token found. Try a symbol or mint address.
           </div>
         ) : null}

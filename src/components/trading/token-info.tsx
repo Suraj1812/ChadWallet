@@ -52,7 +52,7 @@ export function TokenInfo({ token }: TokenInfoProps) {
   ];
 
   return (
-    <article className="overflow-hidden rounded-[1.7rem] border border-white/10 bg-[#080a12]/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+    <article className="overflow-hidden rounded-lg border border-white/10 bg-[#080a12]/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
       <div className="flex flex-col gap-6 border-b border-white/10 bg-white/[0.025] p-5 sm:flex-row sm:items-start sm:justify-between">
         <div className="flex items-center gap-4">
           <TokenAvatar size="lg" token={token} />
@@ -87,12 +87,12 @@ export function TokenInfo({ token }: TokenInfoProps) {
           <span>Price chart</span>
           <span>{token.source === "BirdEye" ? "BirdEye OHLCV" : "Fallback sparkline"}</span>
         </div>
-        <div className="rounded-[1.4rem] border border-white/[0.07] bg-[linear-gradient(180deg,rgba(255,255,255,0.035),rgba(255,255,255,0.01))] px-3 pt-5">
+        <div className="rounded-lg border border-white/[0.07] bg-[linear-gradient(180deg,rgba(255,255,255,0.035),rgba(255,255,255,0.01))] px-3 pt-5">
           <Sparkline token={token} />
         </div>
         <div className="grid gap-3 sm:grid-cols-4">
           {stats.map(([label, value]) => (
-            <div className="rounded-[1.2rem] border border-white/10 bg-black/25 p-4" key={label}>
+            <div className="rounded-md border border-white/10 bg-black/25 p-4" key={label}>
               <p className="text-xs uppercase tracking-[0.16em] text-white/40">{label}</p>
               <p className="mt-2 font-mono text-lg font-bold">{value}</p>
             </div>

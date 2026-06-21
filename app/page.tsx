@@ -43,9 +43,17 @@ export default async function Home() {
 
           <FeaturesSection />
 
-          <DownloadSection />
+          <div className="relative">
+            <div className="md:sticky md:top-24 md:z-10 overflow-hidden">
+              <DownloadSection />
+            </div>
 
-          <DownloadCta featuredTokenAddress={featuredToken.address} />
+            <div className="relative z-20">
+              <DownloadCta
+                featuredTokenAddress={featuredToken.address}
+              />
+            </div>
+          </div>
         </main>
 
         <TokenBanner

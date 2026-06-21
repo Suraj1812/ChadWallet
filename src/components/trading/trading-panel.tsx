@@ -33,7 +33,7 @@ export function TradingPanel({ rpcStatus, token }: TradingPanelProps) {
 
   return (
     <aside className="space-y-4 lg:sticky lg:top-24 lg:h-fit">
-      <section className="rounded-[1.7rem] border border-white/10 bg-[#080a12]/82 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+      <section className="hidden lg:block rounded-xl border border-white/10 bg-[#080a12]/82 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
         <div className="mb-5 flex items-center justify-between">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-chad">Trade</p>
@@ -44,11 +44,11 @@ export function TradingPanel({ rpcStatus, token }: TradingPanelProps) {
           </span>
         </div>
 
-        <div className="grid grid-cols-2 rounded-[1.1rem] bg-black/40 p-1">
+        <div className="grid grid-cols-2 rounded-lg bg-black/40 p-1">
           {(["buy", "sell"] as const).map((option) => (
             <button
               className={cn(
-                "rounded-[0.9rem] px-4 py-3 text-sm font-black uppercase tracking-[0.16em] transition",
+                "rounded-md px-4 py-3 text-sm font-black uppercase tracking-[0.16em] transition",
                 side === option
                   ? option === "buy"
                     ? "bg-emerald-300 text-black shadow-[0_12px_35px_rgba(110,231,183,0.2)]"
@@ -64,7 +64,7 @@ export function TradingPanel({ rpcStatus, token }: TradingPanelProps) {
           ))}
         </div>
 
-        <label className="mt-5 block rounded-[1.3rem] border border-white/10 bg-black/30 p-4 focus-within:border-white/25">
+        <label className="mt-5 block rounded-lg border border-white/10 bg-black/30 p-4 focus-within:border-white/25">
           <span className="text-xs uppercase tracking-[0.18em] text-white/45">You pay</span>
           <div className="mt-3 flex items-end gap-3">
             <input
@@ -90,7 +90,7 @@ export function TradingPanel({ rpcStatus, token }: TradingPanelProps) {
           ))}
         </div>
 
-        <div className="mt-3 rounded-[1.3rem] border border-white/10 bg-black/30 p-4">
+        <div className="mt-3 rounded-lg border border-white/10 bg-black/30 p-4">
           <p className="text-xs uppercase tracking-[0.18em] text-white/45">Estimated receive</p>
           <p className="mt-3 font-mono text-3xl font-black">
             {estimate ? estimate.toLocaleString("en", { maximumFractionDigits: 2 }) : "0"}{" "}
@@ -101,7 +101,7 @@ export function TradingPanel({ rpcStatus, token }: TradingPanelProps) {
 
         <button
           className={cn(
-            "mt-5 w-full rounded-[1.15rem] px-5 py-4 text-sm font-black uppercase tracking-[0.16em] text-black transition hover:-translate-y-0.5",
+            "mt-5 w-full rounded-lg px-5 py-4 text-sm font-black uppercase tracking-[0.16em] text-black transition hover:-translate-y-0.5",
             side === "buy" ? "bg-emerald-300" : "bg-red-300",
           )}
           type="button"
@@ -110,58 +110,83 @@ export function TradingPanel({ rpcStatus, token }: TradingPanelProps) {
         </button>
       </section>
 
-      <section className="rounded-[1.7rem] border border-white/10 bg-[#080a12]/82 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-chad">Your position</p>
-        <div className="mt-4 rounded-[1.3rem] border border-white/10 bg-black/25 p-4">
+      <section className="hidden md:block rounded-xl border border-white/10 bg-[#080a12]/82 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-chad">
+          Your position
+        </p>
+
+        <div className="mt-4 rounded-lg border border-white/10 bg-black/25 p-4">
           <div className="flex items-center justify-between">
             <span className="text-white/50">Balance</span>
-            <span className="font-mono font-bold">0.00 {token.symbol}</span>
+            <span className="font-mono font-bold">
+              0.00 {token.symbol}
+            </span>
           </div>
+
           <div className="mt-3 flex items-center justify-between">
             <span className="text-white/50">Entry</span>
-            <span className="font-mono font-bold">{formatCurrency(token.price)}</span>
+            <span className="font-mono font-bold">
+              {formatCurrency(token.price)}
+            </span>
           </div>
+
           <div className="mt-3 flex items-center justify-between">
             <span className="text-white/50">24h PnL</span>
+
             <span
               className={cn(
                 "font-mono font-bold",
-                token.priceChange24h >= 0 ? "text-emerald-300" : "text-red-300",
+                token.priceChange24h >= 0
+                  ? "text-emerald-300"
+                  : "text-red-300",
               )}
             >
               {formatPercent(token.priceChange24h)}
             </span>
           </div>
         </div>
+
         <div className="mt-5 flex justify-center">
           <PrivyAuthButton className="w-full" />
         </div>
       </section>
 
-      <section className="rounded-[1.7rem] border border-white/10 bg-[#080a12]/82 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-chad">Portfolio</p>
+      <section className="hidden md:block rounded-xl border border-white/10 bg-[#080a12]/82 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-chad">
+          Portfolio
+        </p>
+
         <div className="mt-4 grid gap-3">
-          <div className="rounded-[1.3rem] border border-white/10 bg-black/25 p-4">
+          <div className="rounded-lg border border-white/10 bg-black/25 p-4">
             <div className="flex items-center justify-between">
               <span className="text-white/50">Total value</span>
-              <span className="font-mono text-xl font-black">$0.00</span>
+
+              <span className="font-mono text-xl font-black">
+                $0.00
+              </span>
             </div>
+
             <p className="mt-2 text-xs text-white/40">
               Connect with Privy to attach a Solana wallet and hydrate balances.
             </p>
           </div>
-          <div className="rounded-[1.3rem] border border-white/10 bg-black/25 p-4">
+
+          <div className="rounded-lg border border-white/10 bg-black/25 p-4">
             <div className="flex items-center justify-between">
               <span className="text-white/50">Execution rail</span>
+
               <span
                 className={cn(
                   "font-mono text-xs",
-                  rpcStatus.configured ? "text-chad" : "text-white/45",
+                  rpcStatus.configured
+                    ? "text-chad"
+                    : "text-white/45",
                 )}
               >
                 {rpcStatus.configured ? "Ready" : "Fallback"}
               </span>
             </div>
+
             <p className="mt-2 text-xs text-white/40">
               {rpcStatus.label} · {rpcStatus.cluster}
             </p>

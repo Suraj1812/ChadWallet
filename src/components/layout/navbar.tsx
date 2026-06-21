@@ -14,7 +14,7 @@ export function Navbar({ featuredTokenAddress }: NavbarProps) {
         <Link className="flex items-center gap-3" href="/">
           <Image
             alt="ChadWallet logo"
-            className="rounded-[1rem]"
+            className="rounded-md"
             height={42}
             priority
             src="/logo/dark.png"

@@ -3,7 +3,7 @@ import { features } from "@/data/features";
 
 export function FeaturesSection() {
   return (
-    <section className="px-4 py-20 lg:px-6" id="features">
+    <section className="px-4 py-10 lg:px-6" id="features">
       <div className="mx-auto max-w-7xl">
         <div className="max-w-3xl">
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-chad">
@@ -17,7 +17,7 @@ export function FeaturesSection() {
         <div className="mt-12 grid gap-4 lg:grid-cols-3">
           {features.map((feature) => (
             <article
-              className="group overflow-hidden rounded-[1.8rem] border border-white/10 bg-[#080a12]/72 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] transition duration-300 hover:-translate-y-1 hover:border-white/18"
+              className="group overflow-hidden rounded-lg border border-white/10 bg-[#080a12]/72 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] transition duration-300 hover:-translate-y-1 hover:border-white/18"
               key={feature.title}
             >
               <div className="relative aspect-[16/10] overflow-hidden">
