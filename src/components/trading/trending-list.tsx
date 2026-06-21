@@ -28,18 +28,18 @@ export function TrendingList({ activeAddress, tokens }: TrendingListProps) {
   }, [query, tokens]);
 
   return (
-    <aside className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-4 lg:sticky lg:top-24 lg:h-[calc(100vh-7rem)] lg:overflow-y-auto">
+    <aside className="rounded-[1.7rem] border border-white/10 bg-[#080a12]/78 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] lg:sticky lg:top-24 lg:h-[calc(100vh-7rem)] lg:overflow-y-auto">
       <div className="mb-4 flex items-center justify-between">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-chad">Trending</p>
-          <h1 className="text-2xl font-black tracking-[-0.04em]">Solana tokens</h1>
+          <h1 className="text-2xl font-black tracking-[-0.05em]">Solana tokens</h1>
         </div>
-        <span className="rounded-full bg-white/10 px-3 py-1 font-mono text-xs text-white/60">
+        <span className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 font-mono text-xs text-white/60">
           {tokens[0]?.source ?? "Demo"}
         </span>
       </div>
 
-      <label className="mb-3 block rounded-2xl border border-white/10 bg-black/25 px-4 py-3">
+      <label className="mb-3 block rounded-[1.15rem] border border-white/10 bg-black/25 px-4 py-3 focus-within:border-chad/45">
         <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/35">
           Search ticker
         </span>
@@ -58,8 +58,8 @@ export function TrendingList({ activeAddress, tokens }: TrendingListProps) {
           return (
             <Link
               className={cn(
-                "rounded-3xl border border-white/10 bg-black/20 p-4 transition hover:border-chad/40 hover:bg-chad/10",
-                active && "border-chad/60 bg-chad/10",
+                "group rounded-[1.25rem] border border-white/10 bg-white/[0.025] p-3.5 transition duration-300 hover:-translate-y-px hover:border-chad/35 hover:bg-chad/[0.07]",
+                active && "border-chad/55 bg-chad/[0.08] shadow-[0_18px_70px_rgba(215,255,56,0.08)]",
               )}
               href={"/trade/" + token.address}
               key={token.address}
@@ -67,14 +67,14 @@ export function TrendingList({ activeAddress, tokens }: TrendingListProps) {
               <div className="flex items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
                   <span
-                    className="flex h-10 w-10 items-center justify-center rounded-full font-mono text-sm font-black text-black"
+                    className="flex h-10 w-10 items-center justify-center rounded-xl font-mono text-sm font-black text-black shadow-[0_12px_30px_rgba(0,0,0,0.25)]"
                     style={{ background: token.accent }}
                   >
                     {token.symbol.slice(0, 2)}
                   </span>
                   <div>
-                    <p className="font-black">{token.symbol}</p>
-                    <p className="text-xs text-white/45">{token.name}</p>
+                    <p className="font-black tracking-[-0.02em]">{token.symbol}</p>
+                    <p className="max-w-32 truncate text-xs text-white/42">{token.name}</p>
                   </div>
                 </div>
                 <span
@@ -88,13 +88,13 @@ export function TrendingList({ activeAddress, tokens }: TrendingListProps) {
               </div>
               <div className="mt-4 flex items-center justify-between text-xs text-white/45">
                 <span>{formatCurrency(token.price)}</span>
-                <span>{"$" + formatCompact(token.volume24h)} vol</span>
+                <span className="transition group-hover:text-white/65">{"$" + formatCompact(token.volume24h)} vol</span>
               </div>
             </Link>
           );
         })}
         {filteredTokens.length === 0 ? (
-          <div className="rounded-3xl border border-white/10 bg-black/20 p-4 text-sm text-white/45">
+          <div className="rounded-[1.25rem] border border-white/10 bg-black/20 p-4 text-sm text-white/45">
             No token found. Try a symbol or mint address.
           </div>
         ) : null}

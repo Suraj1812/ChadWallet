@@ -7,21 +7,21 @@ type HoldersListProps = {
 
 export function HoldersList({ holders }: HoldersListProps) {
   return (
-    <section className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-5">
+    <section className="rounded-[1.7rem] border border-white/10 bg-[#080a12]/78 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
       <div className="mb-5 flex items-center justify-between">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-chad">Holders</p>
           <h2 className="text-2xl font-black tracking-[-0.04em]">Top wallets</h2>
         </div>
-        <span className="rounded-full bg-white/10 px-3 py-1 font-mono text-xs text-white/60">
-          Live-ish
+        <span className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 font-mono text-xs text-white/60">
+          {holders.length}
         </span>
       </div>
 
       <div className="grid gap-3">
         {holders.map((holder) => (
           <div
-            className="grid grid-cols-[1fr_auto] gap-3 rounded-3xl border border-white/10 bg-black/20 p-4"
+            className="grid grid-cols-[1fr_auto] gap-3 rounded-[1.2rem] border border-white/10 bg-black/20 p-4 transition hover:bg-white/[0.04]"
             key={holder.address}
           >
             <div>

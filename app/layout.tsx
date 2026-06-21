@@ -25,6 +25,13 @@ export const metadata: Metadata = {
   authors: [{ name: "ChadWallet" }],
   category: "finance",
   creator: "ChadWallet",
+  icons: {
+    apple: [{ url: "/logo/dark.png", sizes: "1024x1024", type: "image/png" }],
+    icon: [
+      { url: "/logo/dark.png", sizes: "1024x1024", type: "image/png" },
+    ],
+    shortcut: ["/logo/dark.png"],
+  },
   keywords: [
     "ChadWallet",
     "Solana",
@@ -42,6 +49,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ChadWallet — Social Solana Trading",
     description: siteConfig.description,
+    locale: "en_US",
     siteName: "ChadWallet",
     type: "website",
     url: "/",

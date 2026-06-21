@@ -9,15 +9,15 @@ export function FeaturesSection() {
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-chad">
             Social-first trading
           </p>
-          <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] sm:text-6xl">
-            Everything a degen checks, on one screen.
+          <h2 className="mt-4 text-4xl font-black tracking-[-0.055em] sm:text-6xl">
+            Built for the moment before consensus.
           </h2>
         </div>
 
         <div className="mt-12 grid gap-4 lg:grid-cols-3">
           {features.map((feature) => (
             <article
-              className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] transition hover:-translate-y-1 hover:border-chad/30"
+              className="group overflow-hidden rounded-[1.8rem] border border-white/10 bg-[#080a12]/72 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] transition duration-300 hover:-translate-y-1 hover:border-white/18"
               key={feature.title}
             >
               <div className="relative aspect-[16/10] overflow-hidden">

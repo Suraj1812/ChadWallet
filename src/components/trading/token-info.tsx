@@ -20,7 +20,7 @@ function Sparkline({ token }: TokenInfoProps) {
     .join(" ");
 
   return (
-    <svg className="h-72 w-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 100 100">
+    <svg className="h-56 w-full overflow-visible sm:h-72" preserveAspectRatio="none" viewBox="0 0 100 100">
       <defs>
         <linearGradient id={"fill-" + token.symbol} x1="0" x2="0" y1="0" y2="1">
           <stop offset="0%" stopColor={token.accent} stopOpacity="0.4" />
@@ -51,19 +51,19 @@ export function TokenInfo({ token }: TokenInfoProps) {
   ];
 
   return (
-    <article className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04]">
-      <div className="flex flex-col gap-6 border-b border-white/10 p-5 sm:flex-row sm:items-start sm:justify-between">
+    <article className="overflow-hidden rounded-[1.7rem] border border-white/10 bg-[#080a12]/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+      <div className="flex flex-col gap-6 border-b border-white/10 bg-white/[0.025] p-5 sm:flex-row sm:items-start sm:justify-between">
         <div className="flex items-center gap-4">
           <span
-            className="flex h-16 w-16 items-center justify-center rounded-full font-mono text-xl font-black text-black"
+            className="flex h-14 w-14 items-center justify-center rounded-2xl font-mono text-xl font-black text-black shadow-[0_18px_50px_rgba(0,0,0,0.35)] sm:h-16 sm:w-16"
             style={{ background: token.accent }}
           >
             {token.symbol.slice(0, 2)}
           </span>
           <div>
             <div className="flex flex-wrap items-center gap-2">
-              <h1 className="text-4xl font-black tracking-[-0.06em]">{token.symbol}</h1>
-              <span className="rounded-full border border-white/10 px-3 py-1 text-xs text-white/55">
+              <h1 className="text-4xl font-black tracking-[-0.06em] sm:text-5xl">{token.symbol}</h1>
+              <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs text-white/55">
                 Solana
               </span>
             </div>
@@ -73,7 +73,7 @@ export function TokenInfo({ token }: TokenInfoProps) {
         </div>
 
         <div className="text-left sm:text-right">
-          <p className="font-mono text-4xl font-black">{formatCurrency(token.price)}</p>
+          <p className="font-mono text-4xl font-black tracking-[-0.05em]">{formatCurrency(token.price)}</p>
           <p
             className={cn(
               "mt-1 font-mono text-sm",
@@ -91,10 +91,12 @@ export function TokenInfo({ token }: TokenInfoProps) {
           <span>Price chart</span>
           <span>{token.source === "BirdEye" ? "BirdEye OHLCV" : "Fallback sparkline"}</span>
         </div>
-        <Sparkline token={token} />
+        <div className="rounded-[1.4rem] border border-white/[0.07] bg-[linear-gradient(180deg,rgba(255,255,255,0.035),rgba(255,255,255,0.01))] px-3 pt-5">
+          <Sparkline token={token} />
+        </div>
         <div className="grid gap-3 sm:grid-cols-4">
           {stats.map(([label, value]) => (
-            <div className="rounded-3xl border border-white/10 bg-black/25 p-4" key={label}>
+            <div className="rounded-[1.2rem] border border-white/10 bg-black/25 p-4" key={label}>
               <p className="text-xs uppercase tracking-[0.16em] text-white/40">{label}</p>
               <p className="mt-2 font-mono text-lg font-bold">{value}</p>
             </div>

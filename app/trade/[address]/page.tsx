@@ -57,11 +57,11 @@ export default async function TradePage({ params }: TradePageProps) {
   const rpcStatus = getSolanaRuntimeStatus();
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-[radial-gradient(circle_at_50%_0%,rgba(75,85,217,0.14),transparent_32%),#050505] text-foreground">
       <TokenBanner tokens={tokens} label="Live Solana watchlist" />
       <Navbar featuredTokenAddress={token.address} />
 
-      <main className="mx-auto grid w-full max-w-[1500px] gap-4 px-4 py-5 lg:grid-cols-[310px_minmax(0,1fr)_360px] lg:px-6">
+      <main className="mx-auto grid w-full max-w-[1500px] gap-4 px-4 py-5 lg:grid-cols-[300px_minmax(0,1fr)_350px] lg:px-6">
         <TrendingList activeAddress={token.address} tokens={tokens} />
 
         <section className="space-y-4">

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  title: "ChadWallet — Where wallet signal becomes alpha",
+  title: "ChadWallet — Trade Solana before it trends",
   description:
     "A premium Solana trading preview with Privy login, live token rails, mobile app links, and token-specific trading pages.",
 };

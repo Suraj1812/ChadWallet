@@ -21,7 +21,7 @@ export function TokenBanner({
   return (
     <section
       className={cn(
-        "border-y border-white/10 bg-black/85 py-2 text-xs uppercase tracking-[0.18em] text-white/70 backdrop-blur",
+        "border-y border-white/[0.08] bg-black/90 py-2 text-xs uppercase tracking-[0.18em] text-white/65 backdrop-blur",
         className,
       )}
     >
@@ -33,7 +33,7 @@ export function TokenBanner({
           <div className="marquee-track gap-3" data-direction={reverse ? "right" : "left"}>
             {marqueeTokens.map((token, index) => (
               <Link
-                className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 transition hover:border-chad/70 hover:bg-chad/10"
+                className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.035] px-3 py-1.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] transition duration-300 hover:-translate-y-px hover:border-chad/45 hover:bg-chad/[0.08] hover:text-white"
                 href={"/trade/" + token.address}
                 key={token.address + "-" + index}
               >
@@ -51,6 +51,9 @@ export function TokenBanner({
                   )}
                 >
                   {formatPercent(token.priceChange24h)}
+                </span>
+                <span className="text-white/22 transition group-hover:translate-x-0.5 group-hover:text-chad">
+                  ↗
                 </span>
               </Link>
             ))}

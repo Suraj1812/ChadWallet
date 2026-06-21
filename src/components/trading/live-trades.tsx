@@ -9,7 +9,7 @@ type LiveTradesProps = {
 
 export function LiveTrades({ tokenSymbol, trades }: LiveTradesProps) {
   return (
-    <section className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-5">
+    <section className="rounded-[1.7rem] border border-white/10 bg-[#080a12]/78 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
       <div className="mb-5 flex items-center justify-between">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-chad">Tape</p>
@@ -21,7 +21,7 @@ export function LiveTrades({ tokenSymbol, trades }: LiveTradesProps) {
       <div className="grid gap-3">
         {trades.map((trade) => (
           <div
-            className="grid grid-cols-[auto_1fr_auto] items-center gap-3 rounded-3xl border border-white/10 bg-black/20 p-4"
+            className="grid grid-cols-[auto_1fr_auto] items-center gap-3 rounded-[1.2rem] border border-white/10 bg-black/20 p-4 transition hover:bg-white/[0.04]"
             key={trade.id}
           >
             <span

@@ -68,6 +68,7 @@ button {
   width: max-content;
   min-width: 200%;
   animation: marquee-left 32s linear infinite;
+  will-change: transform;
 }
 
 .marquee-track[data-direction="right"] {
