@@ -25,16 +25,29 @@ export default async function Home() {
   const featuredToken = tokens[0];
 
   return (
-    <div className="min-h-screen overflow-hidden bg-background">
+    <div className="min-h-screen bg-background">
       <Navbar featuredTokenAddress={featuredToken.address} />
+
       <main>
         <HeroSection featuredToken={featuredToken} />
-        <MobileShowcase />
+
+        <section id="mobile-showcase">
+          <MobileShowcase />
+        </section>
+
         <FeaturesSection />
+
         <DownloadSection />
+
         <DownloadCta featuredTokenAddress={featuredToken.address} />
       </main>
-      <TokenBanner tokens={tokens} label="Tap any ticker to trade" reverse />
+
+      <TokenBanner
+        tokens={tokens}
+        label="Tap any ticker to trade"
+        reverse
+      />
+
       <Footer />
     </div>
   );
