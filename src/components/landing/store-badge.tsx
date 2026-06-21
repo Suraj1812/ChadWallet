@@ -15,9 +15,9 @@ const badges = {
   },
   google: {
     alt: "Get it on Google Play",
-    height: 45,
+    height: 50,
     src: "/badges/google-play.png",
-    width: 151,
+    width: 168,
   },
 };
 
@@ -28,7 +28,11 @@ export function StoreBadge({ compact = false, store }: StoreBadgeProps) {
 
   return (
     <a
-      aria-label={isApple ? "Download ChadWallet on the App Store" : "Get ChadWallet on Google Play"}
+      aria-label={
+        isApple
+          ? "Download ChadWallet on the App Store"
+          : "Get ChadWallet on Google Play"
+      }
       className="group inline-flex items-center justify-center transition duration-200 hover:-translate-y-px hover:brightness-110"
       href={href}
       rel="noreferrer"
@@ -36,7 +40,13 @@ export function StoreBadge({ compact = false, store }: StoreBadgeProps) {
     >
       <Image
         alt={badge.alt}
-        className={compact ? "h-auto max-h-9 w-auto object-contain" : "h-auto max-h-[54px] w-auto object-contain"}
+        className={
+          compact
+            ? "h-auto max-h-9 w-auto object-contain"
+            : isApple
+              ? "h-auto max-h-[54px] w-auto object-contain"
+              : "h-auto max-h-[58px] w-auto object-contain"
+        }
         height={badge.height}
         src={badge.src}
         width={badge.width}

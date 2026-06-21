@@ -26,7 +26,6 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen overflow-hidden bg-background">
-      <TokenBanner tokens={tokens} label="Trending on Solana" />
       <Navbar featuredTokenAddress={featuredToken.address} />
       <main>
         <HeroSection featuredToken={featuredToken} />
