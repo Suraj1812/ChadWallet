@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const screens = [
   { src: "/app-store/search.png", label: "Search" },
@@ -7,6 +10,16 @@ const screens = [
 ];
 
 export function MobileShowcase() {
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActive((prev) => (prev + 1) % screens.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="overflow-hidden border-y border-white/10 bg-white/[0.03] px-4 py-20 lg:px-6">
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
@@ -28,35 +41,45 @@ export function MobileShowcase() {
           <div className="mt-8 overflow-hidden rounded-lg border border-white/10 bg-black">
             <video
               autoPlay
-              className="aspect-video h-full w-full object-cover"
               loop
               muted
               playsInline
               poster="/flow/portfolio-4.png"
               src="/video/chadwallet.mp4"
+              className="aspect-video h-full w-full object-cover"
             />
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
-          {screens.map((screen) => (
-            <div
-              key={screen.src}
-              className="rounded-lg border border-white/10 bg-white/[0.04] p-2 shadow-2xl"
-            >
-              <Image
-                alt={`ChadWallet ${screen.label} screen`}
-                src={screen.src}
-                width={310}
-                height={672}
-                className="h-auto w-full rounded-md"
-              />
+        <div className="relative flex flex-col items-center justify-center">
+          <div className="absolute h-[450px] w-[450px] rounded-full bg-chad/15 blur-[140px]" />
+          <div className="absolute h-[250px] w-[250px] rounded-full bg-white/5 blur-[80px]" />
 
-              <p className="px-2 py-3 text-center text-xs font-bold uppercase tracking-[0.16em] text-white/55">
-                {screen.label}
-              </p>
-            </div>
-          ))}
+          <div className="relative z-10 w-full max-w-[320px]">
+            <Image
+              key={screens[active].src}
+              alt={`ChadWallet ${screens[active].label} screen`}
+              src={screens[active].src}
+              width={320}
+              height={690}
+              className="h-auto w-full rounded-3xl transition-all duration-700"
+              priority
+            />
+          </div>
+
+          <div className="relative z-10 mt-4 flex items-center justify-center gap-2">
+            {screens.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setActive(index)}
+                aria-label={`Go to slide ${index + 1}`}
+                className={`h-2 rounded-full transition-all duration-300 ${active === index
+                    ? "w-6 bg-chad"
+                    : "w-2 bg-white/30 hover:bg-white/50"
+                  }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
